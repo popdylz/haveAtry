@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="format-detection" content="telephone=no">
+        <title>图片上传</title>
+        <link rel="stylesheet" type="text/css" href="css/reset.css" />
+        <style type="text/css">
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+            }
+            #preview {
+                margin: 10px auto;
+                width: 200px;
+                height: 240px;
+                border: 1px solid #000;
+                overflow: hidden;
+            }
+            #imghead {
+                width: 100px;
+                height: 100px;
+                border: 0;
+                filter: progid: DXImageTransform.Microsoft.AlphaImageLoader(sizingMethod=image, src="");
+            }
+            .selectPlugin {
+                margin: 0 auto;
+                padding-left: 4rem;
+            }
+        </style>
+    </head>
+
+    <body>
+        <div id="preview"></div>
+        <input class="selectPlugin" type="file" onchange="previewImage(this)" />
+        <script type="text/javascript">
+            //图片上传预览    IE是用了滤镜。
+            function previewImage(file) {
+                var MAXWIDTH = 200,
+                    MAXHEIGHT = 240;
+                var div = document.getElementById('preview');
+                if(file.files && file.files[0]) {
+                    div.innerHTML = '<img id=imghead>';
+                    var img = document.getElementById('imghead');
+                    img.onload = function() {
+                        var rect = ImgZoomParam(MAXWIDTH, MAXHEIGHT, img.offsetWidth, img.offsetHeight);
+                        img.width = rect.width;
+                        img.height = rect.height;
+                        img.style.marginLeft = rect.left + 'px';
+                        img.style.marginTop = rect.top + 'px';
+                    };
+                    var reader = new FileReader();
+                    reader.onload = function(evt) {
+                        img.src = evt.target.result;
+                    }
+                    reader.readAsDataURL(file.files[0]);
+                }
+            };
+
+            function ImgZoomParam(maxWidth, maxHeight, width, height) {
+                var param = {
+                    top: 0,
+                    left: 0,
+                    width: width,
+                    height: height
+                };
+                if(width > maxWidth || height > maxHeight) {
+                    rateWidth = width / maxWidth;
+                    rateHeight = height / maxHeight;
+                    if(rateWidth > rateHeight) {
+                        param.width = maxWidth;
+                        param.height = Math.round(height / rateWidth);
+                    } else {
+                        param.width = Math.round(width / rateHeight);
+                        param.height = maxHeight;
+                    }
+                }
+                param.top = Math.round((maxHeight - param.height) / 2);
+                param.left = Math.round((maxWidth - param.width) / 2);
+                return param;
+            }
+        </script>
+    </body>
+
+</html>

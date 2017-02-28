@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <meta charset="utf-8" />
+    </head>
+
+    <body>
+        <div>
+            path元素用于定义一个路径。下面的命令可用于路径数据：<br /> M = moveto <br />
+            <!--移动-->
+            L = lineto <br />
+            <!--画直线-->
+            H = horizontal lineto <br />
+            <!--水平线-->
+            V = vertical lineto <br />
+            <!--竖直线-->
+            C = curveto <br />
+            <!--曲线-->
+            S = smooth curveto <br />
+            <!--平滑曲线-->
+            Q = quadratic Bézier curve <br />
+            <!--二次贝塞尔曲线-->
+            T = smooth quadratic Bézier curveto <br />
+            <!--平滑二次贝塞尔曲线-->
+            A = elliptical Arc <br />
+            <!--椭圆弧-->
+            Z = closepath <br />
+            <!--关闭路径-->
+            注意：以上所有命令均允许小写字母。大写表示绝对定位，小写表示相对定位。
+        </div>
+        <svg xmlns="http://www.w3.org/2000/svg" version="1.1" height="200">
+            <polygon points="100,10 40,180 190,60 10,60 160,180" style="fill:lime;stroke:purple;stroke-width:5;fill-rule:evenodd;">
+        </svg>
+
+        <svg width="250" height="150" version="1.1" xmlns="http://www.w3.org/2000/svg">
+            <rect x="10" y="20" rx="20" ry="20" width="150" height="120" style="fill:red;stroke:black;stroke-width:5;opacity:0.5" />
+            <circle cx="50" cy="50" r="20" stroke="black" stroke-width="2" fill="red" />
+        </svg>
+
+        <svg width="100" height="100" version="1.1" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="50" cy="50" r="20" stroke="black" stroke-width="2" fill="red" />
+        </svg>
+        <br />
+        <svg xmlns="http://www.w3.org/2000/svg" version="1.1">
+            <ellipse cx="150" cy="80" rx="100" ry="50" style="fill:yellow;stroke:purple;stroke-width:2" />
+        </svg>
+
+        <svg width="500" height="150" xmlns="http://www.w3.org/2000/svg" version="1.1">
+            <ellipse cx="240" cy="100" rx="220" ry="30" style="fill:purple" />
+            <ellipse cx="220" cy="100" rx="180" ry="20" style="fill:lime" />
+            <ellipse cx="210" cy="100" rx="140" ry="10" style="fill:yellow" />
+        </svg>
+
+        <svg xmlns="http://www.w3.org/2000/svg" version="1.1">
+            <line x1="0" y1="0" x2="200" y2="200" style="stroke:rgb(255,0,0);stroke-width:2" />
+        </svg>
+
+        <svg xmlns="http://www.w3.org/2000/svg" version="1.1">
+            <polyline points="20,20 40,25 60,40 80,120 120,140 200,180" style="fill:none;stroke:black;stroke-width:3" />
+        </svg>
+
+        <svg xmlns="http://www.w3.org/2000/svg" version="1.1">
+            <path d="M150 0 L75 200 L225 200 Z" />
+        </svg>
+
+        <svg xmlns="http://www.w3.org/2000/svg" version="1.1" height="400" width="450">
+            <path id="lineAB" d="M 100 350 l 150 -300" stroke="red" stroke-width="3" fill="none" />
+            <path id="lineBC" d="M 250 50 l 150 300" stroke="red" stroke-width="3" fill="none" />
+            <path d="M 175 200 l 150 0" stroke="green" stroke-width="3" fill="none" />
+            <path d="M 100 350 q 150 -300 300 0" stroke="blue" stroke-width="5" fill="none" />
+            <g stroke="black" stroke-width="2" fill="green">
+                <circle id="pointA" cx="100" cy="350" r="3" />
+                <circle id="pointB" cx="250" cy="50" r="3" />
+                <circle id="pointC" cx="400" cy="350" r="3" />
+            </g>
+            <g font-size="30" font="sans-serif" fill="black" stroke="none" text-anchor="middle">
+                <text x="100" y="350" dx="-30">A</text>
+                <text x="250" y="50" dy="-10">B</text>
+                <text x="400" y="350" dx="30">C</text>
+            </g>
+        </svg>
+
+        <svg xmlns="http://www.w3.org/2000/svg" version="1.1">
+            <text x="0" y="15" fill="red">Knowledge is power!</text>
+        </svg>
+
+        <svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink">
+            <!--<defs>
+		    	<path id="path1" d="M75,20 a1,1 0 0,0 100,0"/>
+		    </defs>-->
+            <path id="path1" d="M75,20 a1,1 0 0,0 100,0" stroke="#ff0000" stroke-width="2" fill="none" />
+            <text x="10" y="100" style="fill:red;">
+		    	<textPath xlink:href="#path1">Knowledge is power</textPath>
+		    </text>
+        </svg>
+
+    </body>
+
+</html>

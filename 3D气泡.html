@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+		body{background: #000;}
+			.bubble {
+				position: relative;
+				width: 100px;
+				height: 100px;
+				border-radius: 100%;
+				background: radial-gradient(circle at 50% 55%,rgba(240,245,255,.9),rgba(240,245,255,.9) 40%,rgba(225,238,255,.8) 60%,rgba(43,130,255,.4));
+			}
+			.bubble:before {
+				position: absolute;
+				z-index: 2;
+				content: "";
+				top: 1%;
+				left: 5%;
+				width: 40%;
+				height: 80%;
+				border-radius: 100%;
+				background: radial-gradient(circle at 130% 130%,hsla(0,0%,100%,0) 0,hsla(0,0%,100%,0) 46%,hsla(0,0%,100%,.8) 50%,hsla(0,0%,100%,.8) 58%,hsla(0,0%,100%,0) 60%,hsla(0,0%,100%,0) 100%);
+				-webkit-transform: translateX(131%) translateY(58%) rotateZ(168deg) rotateX(10deg);
+				transform: translateX(131%) translateY(58%) rotateZ(168deg) rotateX(10deg);
+				-webkit-filter: blur(0);
+				filter: blur(0);
+			}
+			.bubble:after {
+				position: absolute;
+				z-index: 2;
+				border-radius: 100%;
+				content: "";
+				top: 5%;
+				left: 10%;
+				width: 80%;
+				height: 80%;
+				background: radial-gradient(circle at 50% 80%,hsla(0,0%,100%,0),hsla(0,0%,100%,0) 74%,#fff 80%,#fff 84%,hsla(0,0%,100%,0) 100%);
+				-webkit-transform: rotateZ(-30deg);
+				transform: rotateZ(-30deg);
+				-webkit-filter: blur(1px);
+				filter: blur(1px);
+			}
+		</style>
+	</head>
+	<body>
+	    <figure class="bubble"></figure>
+	</body>
+</html>

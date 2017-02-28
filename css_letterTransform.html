@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <meta charset="utf-8">
+        <title></title>
+        <style type="text/css">
+            /*蓝底字母*/
+            
+            .letter {
+                display: inline-block;
+                font-weight: 900;
+                font-size: 120px;
+                margin: 40px;
+                color: #00B4F1;
+                transform-style: preserve-3d;
+                perspective: 400;
+                position: relative;
+                z-index: 2;
+            }
+            
+            .letter:before,
+            .letter:after {
+                position: absolute;
+                top: 0;
+                left: 0;
+                content: attr(data-letter);
+                transform-origin: 0% 0%;
+                transition: all 0.5s ease-in-out;
+            }
+            /*白色上层字母*/
+            
+            .letter:before {
+                color: #fff;
+                text-shadow: 1px 0px 1px rgba(0, 0, 0, .8);
+                z-index: 3;
+                transform: rotateY(-15deg);
+            }
+            /*灰色字母影子*/
+            
+            .letter:after {
+                color: rgba(0, 0, 0, .2);
+                z-index: 1;
+                transform: scale(1.08, 1) skew(0deg, 1deg);
+            }
+            
+            .letter:hover:before {
+                color: #fafafa;
+                transform: rotateY(-150deg);
+            }
+            
+            .letter:hover:after {
+                transform: scale(1.08, 1) rotateY(150deg) skew(0deg, 20deg);
+            }
+        </style>
+    </head>
+
+    <body>
+        <div class="foo">
+            <span class="letter" data-letter="A">A</span>
+            <span class="letter" data-letter="B">B</span>
+            <span class="letter" data-letter="C">C</span>
+            <span class="letter" data-letter="D">D</span>
+            <span class="letter" data-letter="E">E</span>
+            <span class="letter" data-letter="F">F</span>
+            <span class="letter" data-letter="G">G</span>
+            <span class="letter" data-letter="H">H</span>
+            <span class="letter" data-letter="I">I</span>
+            <span class="letter" data-letter="L">L</span>
+            <span class="letter" data-letter="M">M</span>
+            <span class="letter" data-letter="N">N</span>
+            <span class="letter" data-letter="O">O</span>
+            <span class="letter" data-letter="P">P</span>
+            <span class="letter" data-letter="Q">Q</span>
+            <span class="letter" data-letter="R">R</span>
+            <span class="letter" data-letter="S">S</span>
+            <span class="letter" data-letter="T">T</span>
+            <span class="letter" data-letter="U">U</span>
+            <span class="letter" data-letter="V">V</span>
+            <span class="letter" data-letter="Z">Z</span>
+        </div>
+    </body>
+
+</html>
