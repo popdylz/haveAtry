@@ -1,0 +1,47 @@
+<!DOCTYPE HTML>
+<html>
+
+    <head>
+        <meta charset="utf-8">
+        <meta name="format-detection" content="telephone=no" />
+        <title>微信背景音乐自动播放</title>
+        <meta name="keywords" content="" />
+        <meta name="description" content="" />
+    </head>
+
+    <body>
+        <h1></h1>
+        <p>微信背景音乐自动播放</p>
+        <audio id="Jaudio" class="media-audio" src="http://game.163.com/weixin/gfxm3_gc/images/bg.mp3" preload loop="loop"></audio>
+        <!--<script type="text/javascript" src="http://m.suning.com/RES/wap/common/script/lib/zepto/1.1.4/zepto.min.js"></script>-->
+        <script>
+            function audioAutoPlay(id) {
+                var audio = document.getElementById(id),
+                    running = function() {
+                        audio.play();
+                        //去掉此事件监听，避免和页面中其他交互产生冲突
+                        document.removeEventListener("touchstart", running, false);
+                    };
+                audio.play();
+                document.addEventListener("WeixinJSBridgeReady", function() {
+                    audio.play();
+                }, false);
+                document.addEventListener("touchstart", running, false);
+            }
+            audioAutoPlay('Jaudio');
+
+//          function audioAutoPlay(id) {
+//              var audio = document.getElementById(id);
+//              audio.play();
+//              document.addEventListener("WeixinJSBridgeReady", function() {
+//                  audio.play();
+//              }, false);
+//              document.addEventListener('YixinJSBridgeReady', function() {
+//                  audio.play();
+//              }, false);
+//          }
+//          audioAutoPlay('Jaudio');
+        </script>
+    </body>
+
+</html>
